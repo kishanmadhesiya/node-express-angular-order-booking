@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- Mirrored from coderthemes.com/zircos_1.6/default/tables-datatable.html by HTTrack Website Copier/3.x [XR&CO'2013], Fri, 23 Sep 2016 16:40:46 GMT -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <!-- App title -->
+        <title>Fooder</title>
+        <link href="/css/jquery.step.css" rel="stylesheet" type="text/css"/>
+        <!-- DataTables -->
+        <link href="/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/scroller.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+
+        <!-- App css -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="/css/responsive.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/css/switchery.min.css">
+
+        <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="/js/modernizr.min.js"></script>
+
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <div id="wrapper">
+            <div ng-if="activeUser === true">
+                <div  ng-include="'/common/topbar.html'"></div>
+                <div  ng-include="'/common/left_menu.html'"></div>
+            </div>    
+
+        </div>
+        <!-- main -->
+        <main ui-view></main>
+        <!--
+             footer 
+            <footer></footer>-->
+
+        <!-- external scripts -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+        <!-- application scripts -->
+        <script src="app.js"></script>
+        <script src="services/user.service.js"></script>
+        <script src="services/order.service.js"></script>
+        <script src="login/login.js"></script>
+        <script src="dashboard/dashboard.js"></script>
+        <script src="order/book_order.js"></script>
+
+    </body>
+</html>

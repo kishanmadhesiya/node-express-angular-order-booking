@@ -1,0 +1,41 @@
+{
+  "name": "addnotes",
+  "version": "1.0.0",
+  "description": "add your task ",
+  "main": "index.js",
+  "scripts": {
+    "test": "forever start index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "na"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.1.0",
+    "body-parser": "~1.12.4",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "ejs": "^2.3.3",
+    "express": "~4.12.4",
+    "express-jwt": "^3.0.1",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "jsonwebtoken": "^5.0.2",
+    "mongodb": "*",
+    "mongoose": "*",
+    "mongoskin": "^2.1.0",
+    "morgan": "~1.5.3",
+    "multer": "*",
+    "node-cron": "^1.1.2",
+    "q": "^1.4.1",
+    "request": "^2.58.0",
+    "rootpath": "^0.1.2",
+    "serve-favicon": "~2.2.1"
+  },
+  "keywords": [
+    "task"
+  ],
+  "author": "“kishan” <“kishanmadhesiya@gmail.com”>",
+  "license": "ISC"
+}
