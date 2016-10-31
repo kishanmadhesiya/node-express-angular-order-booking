@@ -85,6 +85,7 @@ app.post('/auth/google', function (req, res) {
                                 });
                     } else {
                         profile.hash = accessToken;
+                        profile.cart=[];
                         db.users.insert(
                                 profile,
                                 function (err, doc) {
@@ -101,6 +102,7 @@ app.post('/auth/google', function (req, res) {
                 });
             } else {
                 profile.hash = accessToken;
+                profile.cart=[];
                         db.users.insert(
                                 profile,
                                 function (err, doc) {
