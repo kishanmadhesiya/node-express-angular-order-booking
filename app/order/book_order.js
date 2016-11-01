@@ -68,6 +68,10 @@
             });
         }
         function addItem(itemid,quant,price,name){
+            if(quant=="" || quant==undefined){
+                swal("Bina Add Kiye Khana?? No No");
+                return false;
+            }
             var data = {
                 itemid: itemid,
                 quantity: quant,
