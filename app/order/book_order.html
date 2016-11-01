@@ -65,6 +65,7 @@
                                                 <img src="{{i.image}}" class="img-responsive" style="max-height:200px;">
                                                 <div class="caption">
                                                     <h3>{{i.name}}</h3>
+                                                    <label class="control-label">Price Per Plate/Item:- <font color="red">{{i.price}}</font></label>
                                                     <p><div class="form-group m-b-0">
                                                         <label class="control-label">Quantity</label>
                                                         <select class="form-control divID" ng-model="vm.itemName[$index]">
@@ -113,6 +114,10 @@
                                                                 <td>{{f.quantity}}</td>
                                                                 <td>{{f.price}}</td>
                                                                 
+                                                            </tr>
+                                                            <tr >
+                                                                <td colspan="3" >Total</td>
+                                                                <td ><font color="red">{{vm.getTotal}}</font></td>
                                                             </tr>
                                                         </tbody>
                                             </table>

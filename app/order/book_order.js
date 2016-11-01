@@ -9,6 +9,7 @@
         var vm = this;
         vm.user = null;
         vm.items = null;
+        vm.getTotal = 0;
         vm.userBooked=null;
        // $localStorage.itemBooked=[];
         initController();
@@ -28,10 +29,16 @@
             OrderService.GetBooked().then(function (itemdata) {
                     console.log(itemdata)
                 vm.userBooked = itemdata.data;
+                for(var i=0; i < itemdata.data.length;i++){
+                   vm.getTotal+= itemdata.data[i]['price'];
+                }
             })
         }
         function SubmitForm(){
-            
+            if(vm.getTotal==0){
+                swal("Babua Kuch Book To Kar Le");
+                return 0;
+            }
             var config = {
                 headers : { 'Content-Type': 'application/json' } 
             }
@@ -49,6 +56,7 @@
                     $http.post('/api/order/saveorderfinal', vm.userBooked, config)
             .success(function (data, status, headers, config) {
                 swal("Atal La Raha Tera Order Wait Kar");
+        $window.location.reload();
             })
             .error(function (data, status, header, config) {
                swal("Error Hai Ab Bhukhe Reh");
@@ -86,6 +94,9 @@
                 OrderService.GetBooked().then(function (itemdata) {
                     console.log(itemdata)
                 vm.userBooked = itemdata.data;
+                for(var i=0; i < itemdata.data.length;i++){
+                   vm.getTotal+= itemdata.data[i]['price'];
+                }
             })
             })
             .error(function (data, status, header, config) {
