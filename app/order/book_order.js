@@ -29,6 +29,7 @@
             OrderService.GetBooked().then(function (itemdata) {
                     console.log(itemdata)
                 vm.userBooked = itemdata.data;
+                vm.getTotal=0;
                 for(var i=0; i < itemdata.data.length;i++){
                    vm.getTotal+= itemdata.data[i]['price'];
                 }
@@ -94,6 +95,7 @@
                 OrderService.GetBooked().then(function (itemdata) {
                     console.log(itemdata)
                 vm.userBooked = itemdata.data;
+                vm.getTotal=0;
                 for(var i=0; i < itemdata.data.length;i++){
                    vm.getTotal+= itemdata.data[i]['price'];
                 }
