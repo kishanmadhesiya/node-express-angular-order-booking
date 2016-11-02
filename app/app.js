@@ -29,6 +29,18 @@
                     controller: 'Dashboard',
                     controllerAs: 'vm'
                 })
+                .state('order_history', {
+                    url: '/history',
+                    templateUrl: 'order/order_history.html',
+                    controller: 'Order_History',
+                    controllerAs: 'vm'
+                })
+                .state('complain', {
+                    url: '/complain',
+                    templateUrl: 'order/complain.html',
+                    controller: 'Complain',
+                    controllerAs: 'vm'
+                })
                 .state('order', {
                     url: '/order',
                     templateUrl: 'order/book_order.html',

@@ -10,6 +10,7 @@
 
         service.GetAllItem = GetAllItem;
         service.GetBooked= GetBooked;
+        service.GetBookedHistory= GetBookedHistory;
         return service;
 
         function GetAllItem() {
@@ -18,7 +19,9 @@
         function GetBooked() {
             return $http.get('/api/order/currentbook').then(handleSuccess, handleError);
         }
-        
+        function GetBookedHistory() {
+            return $http.get('/api/order/history').then(handleSuccess, handleError);
+        }
 
         // private functions
 

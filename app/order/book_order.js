@@ -57,7 +57,7 @@
                     $http.post('/api/order/saveorderfinal', vm.userBooked, config)
             .success(function (data, status, headers, config) {
                 swal("Atal La Raha Tera Order Wait Kar");
-        $window.location.reload();
+                $location.path("/history")
             })
             .error(function (data, status, header, config) {
                swal("Error Hai Ab Bhukhe Reh");

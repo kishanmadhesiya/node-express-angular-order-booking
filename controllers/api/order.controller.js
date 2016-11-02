@@ -6,11 +6,25 @@ var orderService = require('../../services/order.service');
 // routes
 router.get('/allitems', allItems);
 router.post('/saveorder', saveOrder);
+router.post('/complain', complainSave);
 router.get('/currentbook', getCurrentOrder);
 router.post('/saveorderfinal', orderSave);
-
+router.get('/history', getOrderHistory);
 module.exports = router;
 
+function getOrderHistory(req,res){
+    orderService.getOrderHistory(req.session.userid)
+        .then(function (item) {
+            if (item) {
+                res.send(item);
+            } else {
+                res.sendStatus(404);
+            };
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
 function allItems(req, res) {
     orderService.getItem()
         .then(function (item) {
@@ -54,6 +68,20 @@ function getCurrentOrder(req, res) {
 function saveOrder(req, res) {
     
    orderService.saveItem(req.body,req.session.userid)
+        .then(function (item) {
+            if (item) {
+                res.send(item);
+            } else {
+                res.sendStatus(404);
+            };
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
+function complainSave(req, res) {
+    
+   orderService.saveComplain(req.body,req.session.userid)
         .then(function (item) {
             if (item) {
                 res.send(item);

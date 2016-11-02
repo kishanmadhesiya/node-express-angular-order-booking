@@ -35,13 +35,13 @@
                                     <div class="form-group clearfix">
                                         <label class="col-lg-2 control-label " for="userName2">Your Name *</label>
                                         <div class="col-lg-10">
-                                            <input class="form-control" id="userName" name="userName" type="text" value="{{vm.user.name}}">
+                                            <input class="form-control" id="userName" name="userName" type="text" ng-model="vm.username" value="{{vm.user.name}}">
                                         </div>
                                     </div>
                                     <div class="form-group clearfix">
                                         <label class="col-lg-2 control-label " for="password2"> Email Id *</label>
                                         <div class="col-lg-10">
-                                            <input id="emailId" name="emailId" type="text" class="required form-control" value="{{vm.user.email}}">
+                                            <input id="emailId" name="emailId" type="text" class="required form-control" ng-model="vm.emailid" value="{{vm.user.email}}">
 
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                     <div class="form-group clearfix">
                                         <label class="col-lg-2 control-label " for="confirm2">Table No *</label>
                                         <div class="col-lg-10">
-                                            <input id="tableNo" name="tableNo" type="number" class=" form-control">
+                                            <input id="tableNo" name="tableNo" type="number" class=" form-control" ng-model="vm.tableno">
                                         </div>
                                     </div>
                                     <div class="form-group clearfix">
