@@ -10,6 +10,9 @@
         vm.user = null;
         vm.items = null;
         vm.getTotal = 0;
+        vm.username =null;
+        vm.tableno=null;
+        vm.email =null;
         vm.userBooked=null;
        // $localStorage.itemBooked=[];
         initController();
@@ -19,6 +22,8 @@
             // get current user
             UserService.GetCurrent().then(function (user) {
                 vm.user = user;
+                 vm.username = user.name;
+                  vm.email = user.email;
             }).catch(function (err) {
                     $window.location="/";
             });
@@ -40,6 +45,7 @@
                 swal("Babua Kuch Book To Kar Le");
                 return 0;
             }
+            var Json={tableno:vm.tableno,username:vm.username,email:vm.email,details:vm.userBooked};
             var config = {
                 headers : { 'Content-Type': 'application/json' } 
             }
@@ -54,7 +60,7 @@
                 closeOnCancel: false
             }, function (isConfirm) {
                 if (isConfirm) {
-                    $http.post('/api/order/saveorderfinal', vm.userBooked, config)
+                    $http.post('/api/order/saveorderfinal', Json, config)
             .success(function (data, status, headers, config) {
                 swal("Atal La Raha Tera Order Wait Kar");
                 $location.path("/history")

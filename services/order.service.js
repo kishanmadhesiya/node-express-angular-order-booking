@@ -3,6 +3,7 @@ var _ = require('lodash');
 var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 var nodemailer = require('nodemailer');
+var moment = require('moment');
 var Q = require('q');
 var mongo = require('mongoskin');
 var db = mongo.db(config.connectionString, {native_parser: true});
@@ -20,11 +21,37 @@ service.getItemName = getItemName;
 service.saveOrderFinal = saveOrderFinal;
 service.getOrderHistory = getOrderHistory;
 service.saveComplain = saveComplain;
+service.getOrderBooked=getOrderBooked
 module.exports = service;
+function getOrderBooked() {
+    var deferred = Q.defer();
+    var start = new Date();
+start.setHours(0,0,0,0);
+
+var end = new Date();
+end.setHours(23,59,59,999);
+    start.setHours(0,0,0,0);
+    db.order_details.find({timestamp: {$gte: start, $lt: end}}).toArray(function (err, item) {
+
+        if (err)
+            deferred.reject(err);
+
+        if (item) {
+            //  console.log(item);
+            // return user (without hashed password)
+            deferred.resolve(item);
+        } else {
+            // user not found
+            deferred.resolve();
+        }
+    });
+
+    return deferred.promise;
+}
 function saveOrderFinal(data, _id) {
     var deferred = Q.defer();
     console.log(this);
-    db.order_details.insert({date: new Date(), details: data, timestamp: new Date(), userid: _id, status: "Process"}, function (err, doc) {
+    db.order_details.insert({date: new Date(),tableno:data.tableno,email:data.email, username:data.username,details:data.details, timestamp: new Date(), userid: _id, status: "Process"}, function (err, doc) {
         if (err) {
             deferred.reject(err);
         } else {

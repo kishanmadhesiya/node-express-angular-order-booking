@@ -41,6 +41,12 @@
                     controller: 'Complain',
                     controllerAs: 'vm'
                 })
+                .state('allorder', {
+                    url: '/allorder',
+                    templateUrl: 'admin/allorder.html',
+                    controller: 'Admin_Order',
+                    controllerAs: 'vm'
+                })
                 .state('order', {
                     url: '/order',
                     templateUrl: 'order/book_order.html',

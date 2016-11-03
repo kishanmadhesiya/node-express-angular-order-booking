@@ -10,10 +10,24 @@ router.post('/complain', complainSave);
 router.get('/currentbook', getCurrentOrder);
 router.post('/saveorderfinal', orderSave);
 router.get('/history', getOrderHistory);
+router.get('/allorder', getOrderBooked);
 module.exports = router;
 
 function getOrderHistory(req,res){
     orderService.getOrderHistory(req.session.userid)
+        .then(function (item) {
+            if (item) {
+                res.send(item);
+            } else {
+                res.sendStatus(404);
+            };
+        })
+        .catch(function (err) {
+            res.status(400).send(err);
+        });
+}
+function getOrderBooked(req,res){
+    orderService.getOrderBooked()
         .then(function (item) {
             if (item) {
                 res.send(item);
